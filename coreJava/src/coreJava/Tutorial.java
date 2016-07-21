@@ -2,6 +2,7 @@ package coreJava;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -41,6 +42,15 @@ public class Tutorial {
  List<Employee> _lst = new ArrayList<Employee>(_eSet);
  Collections.sort(_lst,new CustomComparator());
  
+ Collections.sort(_lst,new Comparator<Employee>() {
+
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		// TODO Auto-generated method stub
+		return o1.getEmployeeName().compareTo(o2.getEmployeeName());
+	}
+	 
+ });
  
  
 for (Employee employee : _eSet) {
