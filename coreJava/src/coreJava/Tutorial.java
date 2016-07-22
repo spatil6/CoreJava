@@ -76,6 +76,31 @@ public class Tutorial {
 			    System.out.print(e.getEmployeeId() +":"+ e.getEmployeeName() + ": ");
 			    System.out.println(me.getValue());
 			 }
+			
+		// Thread
+			 
+			EmployeeService objEmployeeService = new EmployeeService(0);
+			EmployeeService objEmployeeService1 = new EmployeeService(1);
+			EmployeeService objEmployeeService2 = new EmployeeService(2);
+			 
+			Thread _th = new Thread(objEmployeeService);
+			Thread _th1 = new Thread(objEmployeeService1);
+			Thread _th2 = new Thread(objEmployeeService2);
+			 System.out.println("FT");
+			_th.start();
+			try {
+				_th.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 System.out.println("ST");
+			_th1.start();
+			 System.out.println("TT");
+			_th2.start();
+			 
+			
+			
 	}
 
 }
